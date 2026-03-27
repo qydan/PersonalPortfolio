@@ -4,64 +4,80 @@ import {
   SiPython,
   SiOpenjdk,
   SiC,
+  SiSwift,
+  SiKotlin,
+  SiDart,
   SiReact,
+  SiNextdotjs,
   SiNodedotjs,
   SiExpress,
-  SiNextdotjs,
+  SiFlutter,
+  SiFastapi,
+  SiVuedotjs,
+  SiPytorch,
+  SiDocker,
+  SiGit,
+  SiLinux,
+  SiTerraform,
+  SiMysql,
   SiPostgresql,
   SiMongodb,
-  SiMysql,
-  SiGit,
-  SiDocker,
-  SiLinux,
-  SiFigma,
-} from 'react-icons/si';
-import { FaAws, FaCode } from 'react-icons/fa';
+  SiGithubactions,
+  SiJira,
+  SiPostman,
+  SiMapbox,
+} from 'react-icons/si'
+import { FaAws } from 'react-icons/fa'
 
 const skills = [
   {
     category: 'Languages',
     items: [
-      { name: 'JavaScript', icon: SiJavascript },
-      { name: 'TypeScript', icon: SiTypescript },
       { name: 'Python', icon: SiPython },
+      { name: 'TypeScript', icon: SiTypescript },
+      { name: 'JavaScript', icon: SiJavascript },
       { name: 'Java', icon: SiOpenjdk },
-      { name: 'C', icon: SiC },
+      { name: 'C/C++', icon: SiC },
+      { name: 'Dart', icon: SiDart },
+      { name: 'Swift', icon: SiSwift },
+      { name: 'Kotlin', icon: SiKotlin },
     ],
   },
   {
-    category: 'Frameworks',
+    category: 'Frameworks & Libraries',
     items: [
       { name: 'React', icon: SiReact },
+      { name: 'Next.js', icon: SiNextdotjs },
       { name: 'Node.js', icon: SiNodedotjs },
       { name: 'Express', icon: SiExpress },
-      { name: 'Next.js', icon: SiNextdotjs },
+      { name: 'Flutter', icon: SiFlutter },
+      { name: 'FastAPI', icon: SiFastapi },
+      { name: 'Vue.js', icon: SiVuedotjs },
+      { name: 'PyTorch', icon: SiPytorch },
     ],
   },
   {
-    category: 'Databases',
-    items: [
-      { name: 'PostgreSQL', icon: SiPostgresql },
-      { name: 'MongoDB', icon: SiMongodb },
-      { name: 'MySQL', icon: SiMysql },
-    ],
-  },
-  {
-    category: 'Tools',
-    items: [
-      { name: 'Git', icon: SiGit },
-      { name: 'Docker', icon: SiDocker },
-      { name: 'Linux', icon: SiLinux },
-      { name: 'VS Code', icon: FaCode },
-      { name: 'Figma', icon: SiFigma },
-    ],
-  },
-  {
-    category: 'Cloud',
+    category: 'Cloud & DevOps',
     items: [
       { name: 'AWS', icon: FaAws },
+      { name: 'Docker', icon: SiDocker },
+      { name: 'Terraform', icon: SiTerraform },
+      { name: 'GitHub Actions', icon: SiGithubactions },
+      { name: 'Linux', icon: SiLinux },
     ],
   },
-];
+  {
+    category: 'Databases & Tools',
+    items: [
+      { name: 'PostgreSQL', icon: SiPostgresql },
+      { name: 'MySQL', icon: SiMysql },
+      { name: 'MongoDB', icon: SiMongodb },
+      { name: 'Git', icon: SiGit },
+      { name: 'Postman', icon: SiPostman },
+      { name: 'Jira', icon: SiJira },
+      { name: 'Mapbox', icon: SiMapbox },
+    ],
+  },
+]
 
-export default skills;
+export default skills

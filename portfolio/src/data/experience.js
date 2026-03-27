@@ -1,35 +1,45 @@
 // Sorted reverse-chronologically (most recent first)
 const experience = [
   {
-    id: 'swe-intern-shopify',
+    id: 'raven-swe',
     type: 'work',
-    title: 'Software Engineering Intern',
-    organization: 'Shopify',
-    dateRange: 'May 2024 – Aug 2024',
+    title: 'Software Developer',
+    organization: 'Raven Connected',
+    dateRange: 'Jan 2026 – Present',
     description:
-      'Worked on the Checkout team to improve performance of the order-summary component. Reduced render time by 18% through memoization and lazy loading. Wrote unit and integration tests using Jest and Playwright, and participated in weekly code reviews.',
-    location: 'Ottawa, ON (Hybrid)',
-  },
-  {
-    id: 'ta-carleton',
-    type: 'work',
-    title: 'Teaching Assistant — COMP 2404 (Intro to Software Engineering)',
-    organization: 'Carleton University',
-    dateRange: 'Sep 2023 – Apr 2024',
-    description:
-      'Led weekly lab sessions for 30+ students covering C++ OOP concepts, UML design, and software testing. Graded assignments and provided written feedback. Held office hours to support students with debugging and design questions.',
+      'Architected full-stack GIS systems (OpenStreetMaps, Mapbox, MapLibre) on Linux using Docker and AWS. Implemented CI/CD pipelines with 90%+ test coverage, reducing production defects by 35% and accelerating release cycles by 40%. Provisioned AWS infrastructure (Lambda, S3, IAM) using IaC, and built serverless TypeScript/Node.js backends with SQS and EventBridge, reducing service latency by 30%.',
     location: 'Ottawa, ON',
   },
   {
-    id: 'bsc-carleton',
+    id: 'remsoft-swe',
+    type: 'work',
+    title: 'Software Developer',
+    organization: 'Remsoft',
+    dateRange: 'May 2025 – Aug 2025',
+    description:
+      'Developed and maintained 3 cross-platform mobile applications using Flutter and Dart across iOS, Android, and Windows, reaching 15,000+ active users. Delivered 25+ custom features and integrated 3 major GIS/mapping APIs (ArcGIS, Mapbox, Leaflet), improving user engagement by 30%. Implemented 5+ RESTful APIs enabling secure auth, cloud sync, and real-time location tracking with 99.9% uptime.',
+    location: 'Ottawa, ON',
+  },
+  {
+    id: 'ta-math-carleton',
+    type: 'work',
+    title: 'Undergraduate Math & Statistics Teaching Assistant',
+    organization: 'Carleton University',
+    dateRange: 'Sep 2025 – Dec 2025',
+    description:
+      'Mentored 2 cohorts of 50+ students in weekly tutorials, translating complex calculus concepts into clear, actionable steps. Graded 500+ assignments and exams with detailed feedback, strengthening students\' analytical and critical thinking skills.',
+    location: 'Ottawa, ON',
+  },
+  {
+    id: 'beng-carleton',
     type: 'education',
-    title: 'Bachelor of Engineering — Software Engineering (Co-op)',
+    title: 'Honours BEng, Software Engineering (CO-OP)',
     organization: 'Carleton University',
-    dateRange: 'Sep 2022 – Apr 2026 (expected)',
+    dateRange: 'Sep 2023 – Apr 2027',
     description:
-      'Third-year student with a 3.8 GPA. Relevant coursework includes Algorithms & Data Structures, Operating Systems, Database Management Systems, Software Architecture, and Machine Learning. Dean\'s List 2022–2023.',
+      'GPA: 3.96/4.0. President\'s Scholarship, Henry M. Tory Scholarship, Dean\'s Honour List 2023 & 2024. Coursework: Data Structures & Algorithms, Real Time Systems, Operating Systems, Computer Architecture, Database Management.',
     location: 'Ottawa, ON',
   },
-];
+]
 
-export default experience;
+export default experience

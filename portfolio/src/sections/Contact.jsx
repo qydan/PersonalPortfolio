@@ -4,11 +4,11 @@ import emailjs from '@emailjs/browser'
 import { FaGithub, FaLinkedin, FaEnvelope, FaCopy, FaCheck } from 'react-icons/fa'
 import SectionWrapper from '../components/SectionWrapper'
 
-const EMAIL = 'aydan@example.com'
+const EMAIL = 'aydaneng@cmail.carleton.ca'
 
 const socialLinks = [
   { icon: FaGithub, href: 'https://github.com/qydan', label: 'GitHub' },
-  { icon: FaLinkedin, href: 'https://linkedin.com/in/qydan', label: 'LinkedIn' },
+  { icon: FaLinkedin, href: 'https://linkedin.com/in/aydaneng', label: 'LinkedIn' },
   { icon: FaEnvelope, href: `mailto:${EMAIL}`, label: 'Email' },
 ]
 

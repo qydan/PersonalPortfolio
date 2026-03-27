@@ -45,16 +45,16 @@ export default function About() {
             className="flex flex-col gap-4"
           >
             <p className="text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
-              I&apos;m a 3rd-year Software Engineering student at Carleton University with a passion
-              for building clean, user-focused software. I love working across the full stack —
-              from designing intuitive UIs to architecting scalable backends. When I&apos;m not
-              coding, you&apos;ll find me contributing to open source, exploring new technologies,
-              or hiking.
+              I&apos;m a 3rd-year Software Engineering student at Carleton University (GPA 3.96)
+              with hands-on experience building full-stack systems, mobile apps, and cloud
+              infrastructure at Raven Connected and Remsoft. I love working across the stack,
+              from React frontends to serverless AWS backends. When I&apos;m not coding you&apos;ll
+              find me at hackathons, contributing to open source, or watching Spider-Man.
             </p>
 
             <div className="mt-2">
               <span className="inline-flex items-center bg-red-500/10 text-red-600 dark:text-red-400 border border-red-500/30 px-3 py-1 rounded-full text-sm">
-                🟢 Open to internships &amp; co-op opportunities
+                🟢 Open to Summer 2026 co-op opportunities
               </span>
             </div>
           </motion.div>

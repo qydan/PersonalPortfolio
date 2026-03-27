@@ -18,7 +18,7 @@ export default function Footer() {
         <a href="https://linkedin.com/in/qydan" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="hover:text-red-500 transition-colors">
           <FaLinkedin />
         </a>
-        <a href="mailto:aydan@example.com" aria-label="Email" className="hover:text-red-500 transition-colors">
+        <a href="mailto:aydaneng@cmail.carleton.ca" aria-label="Email" className="hover:text-red-500 transition-colors">
           <FaEnvelope />
         </a>
       </div>
