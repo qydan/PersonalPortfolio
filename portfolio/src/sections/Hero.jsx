@@ -2,6 +2,7 @@ import { motion, useReducedMotion } from 'framer-motion'
 import { TypeAnimation } from 'react-type-animation'
 import { FaGithub, FaLinkedin } from 'react-icons/fa'
 import { FiChevronDown } from 'react-icons/fi'
+import ParticleCanvas from '../components/ParticleCanvas'
 
 const scrollTo = (id) => {
   document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
@@ -30,15 +31,15 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden
-                 bg-gradient-to-br from-gray-50 via-white to-gray-100
-                 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950"
+      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden"
     >
-      {/* Decorative red glow blob */}
+      <ParticleCanvas />
+
+      {/* Subtle radial glow behind content */}
       <div
         aria-hidden="true"
-        className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2
-                   w-[600px] h-[400px] bg-red-500/10 blur-3xl rounded-full pointer-events-none"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
+                   w-[500px] h-[300px] bg-red-500/5 blur-3xl rounded-full pointer-events-none"
       />
 
       {/* Main content */}
@@ -137,7 +138,7 @@ export default function Hero() {
           className="flex items-center gap-5 mt-1"
         >
           <a
-            href="https://github.com/aydaneng"
+            href="https://github.com/qydan"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub"
@@ -146,7 +147,7 @@ export default function Hero() {
             <FaGithub />
           </a>
           <a
-            href="https://linkedin.com/in/aydaneng"
+            href="https://linkedin.com/in/qydan"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"

@@ -12,10 +12,10 @@ export default function Footer() {
   return (
     <footer className="py-8 text-center text-gray-500 dark:text-gray-400 relative">
       <div className="flex justify-center gap-6 mb-4 text-xl">
-        <a href="https://github.com/aydaneng" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="hover:text-red-500 transition-colors">
+        <a href="https://github.com/qydan" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="hover:text-red-500 transition-colors">
           <FaGithub />
         </a>
-        <a href="https://linkedin.com/in/aydaneng" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="hover:text-red-500 transition-colors">
+        <a href="https://linkedin.com/in/qydan" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="hover:text-red-500 transition-colors">
           <FaLinkedin />
         </a>
         <a href="mailto:aydan@example.com" aria-label="Email" className="hover:text-red-500 transition-colors">

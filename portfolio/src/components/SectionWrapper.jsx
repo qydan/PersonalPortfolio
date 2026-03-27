@@ -1,20 +1,25 @@
-import { motion, useReducedMotion } from 'framer-motion'
+import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion'
+import { useRef } from 'react'
 
 export default function SectionWrapper({ id, className, children }) {
   const reducedMotion = useReducedMotion()
+  const ref = useRef(null)
 
-  const variants = reducedMotion
-    ? { initial: { opacity: 1, y: 0 }, animate: { opacity: 1, y: 0 } }
-    : { initial: { opacity: 0, y: 40 }, animate: { opacity: 1, y: 0 } }
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ['start end', 'end start'],
+  })
+
+  // Fade in as section enters from bottom, fade out as it exits top
+  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0])
+  const y = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [40, 0, 0, -40])
 
   return (
     <motion.section
+      ref={ref}
       id={id}
       className={className}
-      initial={variants.initial}
-      whileInView={variants.animate}
-      viewport={{ once: true, amount: 0.15 }}
-      transition={{ duration: 0.6, ease: 'easeOut' }}
+      style={reducedMotion ? {} : { opacity, y }}
     >
       {children}
     </motion.section>

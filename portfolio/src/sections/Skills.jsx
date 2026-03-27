@@ -25,7 +25,7 @@ export default function Skills() {
                       key={skill.name}
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true, amount: 0.1 }}
+                      viewport={{ once: false, amount: 0.1 }}
                       transition={{ duration: 0.4, delay: index * 0.05 }}
                       whileHover={{ scale: 1.1 }}
                       className="flex flex-col items-center gap-2 p-4 rounded-xl bg-gray-100 dark:bg-gray-800 hover:bg-red-500/10 dark:hover:bg-red-500/10 transition-colors cursor-default"

@@ -1,13 +1,15 @@
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import emailjs from '@emailjs/browser'
-import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa'
+import { FaGithub, FaLinkedin, FaEnvelope, FaCopy, FaCheck } from 'react-icons/fa'
 import SectionWrapper from '../components/SectionWrapper'
 
+const EMAIL = 'aydan@example.com'
+
 const socialLinks = [
-  { icon: FaGithub, href: 'https://github.com/aydaneng', label: 'GitHub' },
-  { icon: FaLinkedin, href: 'https://linkedin.com/in/aydaneng', label: 'LinkedIn' },
-  { icon: FaEnvelope, href: 'mailto:aydan@example.com', label: 'Email' },
+  { icon: FaGithub, href: 'https://github.com/qydan', label: 'GitHub' },
+  { icon: FaLinkedin, href: 'https://linkedin.com/in/qydan', label: 'LinkedIn' },
+  { icon: FaEnvelope, href: `mailto:${EMAIL}`, label: 'Email' },
 ]
 
 const inputClass =
@@ -15,7 +17,15 @@ const inputClass =
 const errorClass = 'text-red-500 text-sm mt-1'
 
 export default function Contact() {
-  const [status, setStatus] = useState(null) // null | 'loading' | 'success' | 'error'
+  const [status, setStatus] = useState(null)
+  const [copied, setCopied] = useState(false)
+
+  function copyEmail() {
+    navigator.clipboard.writeText(EMAIL).then(() => {
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2000)
+    })
+  }
 
   const {
     register,
@@ -41,7 +51,7 @@ export default function Contact() {
   }
 
   return (
-    <SectionWrapper id="contact" className="py-20 px-6 bg-gray-50 dark:bg-gray-900">
+    <SectionWrapper id="contact" className="py-20 px-6">
       <div className="max-w-5xl mx-auto">
         {/* Heading */}
         <div className="mb-12 text-center">
@@ -58,6 +68,19 @@ export default function Contact() {
             <p className="text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
               Have a question, opportunity, or just want to say hi? My inbox is always open.
             </p>
+
+            {/* Copy email row */}
+            <div className="flex items-center gap-3 bg-gray-100 dark:bg-gray-800 rounded-lg px-4 py-3 w-fit">
+              <span className="text-sm text-gray-700 dark:text-gray-300 font-mono">{EMAIL}</span>
+              <button
+                onClick={copyEmail}
+                aria-label="Copy email address"
+                className="text-gray-500 hover:text-red-500 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-500 rounded"
+              >
+                {copied ? <FaCheck className="text-red-500" /> : <FaCopy />}
+              </button>
+            </div>
+
             <div className="flex gap-5">
               {socialLinks.map(({ icon: Icon, href, label }) => (
                 <a

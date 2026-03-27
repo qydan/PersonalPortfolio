@@ -1,7 +1,13 @@
 import { motion } from 'framer-motion'
 import SectionWrapper from '../components/SectionWrapper'
+import useGitHubProfile from '../hooks/useGitHubProfile'
+
+const GITHUB_USERNAME = 'qydan'
 
 export default function About() {
+  const { data, loading } = useGitHubProfile(GITHUB_USERNAME)
+  const avatarSrc = data?.avatarUrl ?? '/profile.jpg'
+
   return (
     <SectionWrapper id="about" className="py-20 px-6">
       <div className="max-w-5xl mx-auto">
@@ -15,22 +21,26 @@ export default function About() {
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: false, amount: 0.3 }}
             transition={{ duration: 0.6, ease: 'easeOut' }}
             className="flex-shrink-0"
           >
-            <img
-              src="/profile.jpg"
-              alt="Aydan Eng, Software Engineering student"
-              className="w-48 h-48 rounded-full object-cover border-4 border-red-500"
-            />
+            {loading ? (
+              <div className="w-48 h-48 rounded-full bg-gray-200 dark:bg-gray-700 animate-pulse border-4 border-red-500" />
+            ) : (
+              <img
+                src={avatarSrc}
+                alt="Aydan, Software Engineering student"
+                className="w-48 h-48 rounded-full object-cover border-4 border-red-500 shadow-lg"
+              />
+            )}
           </motion.div>
 
           {/* Text content */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: false, amount: 0.3 }}
             transition={{ duration: 0.6, ease: 'easeOut', delay: 0.1 }}
             className="flex flex-col gap-4"
           >
