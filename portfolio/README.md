@@ -1,5 +1,7 @@
 # Aydan Eng — Personal Portfolio
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/59af2550-04f6-4f51-800e-6273839c78ca/deploy-status)](https://app.netlify.com/projects/aydaneng/deploys)
+
 A modern, fully responsive personal portfolio website built with React + Vite. Features smooth animations, dark/light mode, filterable projects, an experience timeline, and a contact form.
 
 ---
