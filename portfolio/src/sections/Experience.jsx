@@ -67,9 +67,20 @@ export default function Experience() {
                         {entry.location}
                       </p>
                     )}
-                    <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
-                      {entry.description}
-                    </p>
+                    {entry.bullets ? (
+                      <ul className="mt-2 flex flex-col gap-1.5">
+                        {entry.bullets.map((b, i) => (
+                          <li key={i} className="flex items-start gap-2 text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+                            <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-red-500 flex-shrink-0" />
+                            {b}
+                          </li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+                        {entry.description}
+                      </p>
+                    )}
                   </div>
 
                   {/* Timeline dot — centered on the line */}

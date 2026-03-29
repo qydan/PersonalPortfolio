@@ -121,7 +121,7 @@ export default function Hero() {
             Get in Touch
           </button>
           <a
-            href="/resume.pdf"
+            href="/AydanEng_resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="px-6 py-3 rounded-lg font-medium transition-all
@@ -147,7 +147,7 @@ export default function Hero() {
             <FaGithub />
           </a>
           <a
-            href="https://linkedin.com/in/qydan"
+            href="https://linkedin.com/in/aydaneng"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"

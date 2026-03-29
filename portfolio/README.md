@@ -2,7 +2,9 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/59af2550-04f6-4f51-800e-6273839c78ca/deploy-status)](https://app.netlify.com/projects/aydaneng/deploys)
 
-A modern, fully responsive personal portfolio website built with React + Vite. Features smooth animations, dark/light mode, filterable projects, an experience timeline, and a contact form.
+Personal portfolio website for Aydan Eng — Software Developer at Raven Connected and Software Engineering student at Carleton University (GPA 3.96).
+
+Live at: [aydaneng.netlify.app](https://aydaneng.netlify.app)
 
 ---
 
@@ -16,8 +18,29 @@ A modern, fully responsive personal portfolio website built with React + Vite. F
 | Typewriter | react-type-animation |
 | Icons | react-icons |
 | Form handling | react-hook-form v7 |
-| Email delivery | @emailjs/browser |
+| Contact | mailto (opens email client) |
 | Testing | Vitest + @testing-library/react + fast-check |
+
+---
+
+## Features
+
+- Auto-hide navbar — appears when cursor moves near the top
+- Hero section with particle canvas + cursor repulsion effect
+- Global cursor particle trail across the entire page
+- Scroll-driven section fade in/out animations
+- About section with live GitHub avatar (pulled from github.com/qydan)
+- Skills grid grouped by category with hover effects
+- Filterable project cards with animated transitions, Devpost links, and hackathon winner badge
+- Vertical experience timeline with bullet points
+- Contact form using mailto (no backend, no limits)
+- Dark/light mode toggle with OS preference detection and localStorage persistence
+- Scroll progress bar
+- Back-to-top button
+- Spider favicon
+- Fully responsive (mobile, tablet, desktop)
+- Keyboard accessible throughout
+- Respects `prefers-reduced-motion`
 
 ---
 
@@ -26,24 +49,28 @@ A modern, fully responsive personal portfolio website built with React + Vite. F
 ```
 portfolio/
 ├── public/
-│   ├── profile.jpg        ← replace with your photo
+│   ├── favicon.svg        ← red spider favicon
 │   └── resume.pdf         ← replace with your CV
 └── src/
     ├── context/
-    │   └── ThemeContext.jsx       # dark/light mode + localStorage
+    │   └── ThemeContext.jsx
     ├── hooks/
-    │   ├── useScrollProgress.js  # scroll % [0–100]
-    │   └── useActiveSection.js   # active nav link via IntersectionObserver
+    │   ├── useScrollProgress.js
+    │   ├── useActiveSection.js
+    │   └── useGitHubProfile.js
     ├── data/
-    │   ├── projects.js            # project entries
-    │   ├── skills.js              # skill categories + icons
-    │   └── experience.js          # work + education timeline
+    │   ├── projects.js
+    │   ├── skills.js
+    │   └── experience.js
     ├── components/
     │   ├── Navbar.jsx
     │   ├── ScrollProgressBar.jsx
-    │   ├── SectionWrapper.jsx     # shared Framer Motion entrance wrapper
+    │   ├── SectionWrapper.jsx
     │   ├── ThemeToggle.jsx
     │   ├── Footer.jsx
+    │   ├── ParticleCanvas.jsx     ← hero particle background
+    │   ├── CursorSpotlight.jsx    ← global cursor particle trail
+    │   ├── PageTransition.jsx
     │   └── projects/
     │       ├── FilterBar.jsx
     │       └── ProjectCard.jsx
@@ -66,28 +93,13 @@ npm install
 npm run dev
 ```
 
-Then open [http://localhost:5173](http://localhost:5173).
+Open [http://localhost:5173](http://localhost:5173).
 
 ---
 
 ## Personalisation Checklist
 
-Before deploying, update the following:
-
-- [ ] Replace `public/profile.jpg` with your actual photo
-- [ ] Replace `public/resume.pdf` with your actual CV
-- [ ] Update your name, bio, and status in `src/sections/About.jsx`
-- [ ] Update GitHub + LinkedIn URLs in:
-  - `src/sections/Hero.jsx`
-  - `src/sections/Contact.jsx`
-  - `src/components/Footer.jsx`
-- [ ] Update your email in `src/sections/Contact.jsx` and `src/components/Footer.jsx`
-- [ ] Replace project entries in `src/data/projects.js` with your real projects
-- [ ] Update experience entries in `src/data/experience.js`
-- [ ] Set up EmailJS and replace the three placeholders in `src/sections/Contact.jsx`:
-  - `YOUR_SERVICE_ID`
-  - `YOUR_TEMPLATE_ID`
-  - `YOUR_PUBLIC_KEY`
+- [ ] Set up EmailJS or keep mailto — contact form is ready either way
 
 ---
 
@@ -103,18 +115,13 @@ Before deploying, update the following:
 
 ---
 
-## Features
+## Deployment
 
-- Sticky navbar with scroll-aware background + active link highlighting
-- Hero section with typewriter animation and staggered entrance
-- About section with profile photo and status badge
-- Skills grid grouped by category with hover effects
-- Filterable project cards with animated transitions
-- Vertical experience timeline (work + education)
-- Contact form with validation, loading state, and EmailJS delivery
-- Dark / light mode toggle with OS preference detection and localStorage persistence
-- Scroll progress bar
-- Back-to-top button
-- Fully responsive (mobile, tablet, desktop)
-- Keyboard accessible throughout
-- Respects `prefers-reduced-motion`
+Deployed via Netlify. Config in `netlify.toml` at repo root:
+
+```toml
+[build]
+  base    = "portfolio"
+  command = "npm run build"
+  publish = "dist"
+```

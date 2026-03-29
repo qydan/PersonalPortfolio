@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
-import emailjs from '@emailjs/browser'
 import { FaGithub, FaLinkedin, FaEnvelope, FaCopy, FaCheck } from 'react-icons/fa'
 import SectionWrapper from '../components/SectionWrapper'
 
@@ -17,7 +16,6 @@ const inputClass =
 const errorClass = 'text-red-500 text-sm mt-1'
 
 export default function Contact() {
-  const [status, setStatus] = useState(null)
   const [copied, setCopied] = useState(false)
 
   function copyEmail() {
@@ -27,41 +25,22 @@ export default function Contact() {
     })
   }
 
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors },
-  } = useForm()
+  const { register, handleSubmit, formState: { errors } } = useForm()
 
-  const onSubmit = async (data) => {
-    setStatus('loading')
-    try {
-      await emailjs.send(
-        'YOUR_SERVICE_ID',
-        'YOUR_TEMPLATE_ID',
-        data,
-        'YOUR_PUBLIC_KEY'
-      )
-      setStatus('success')
-      reset()
-    } catch {
-      setStatus('error')
-    }
+  const onSubmit = (data) => {
+    const subject = encodeURIComponent(`Portfolio message from ${data.name}`)
+    const body = encodeURIComponent(`${data.message}\n\nFrom: ${data.name}\nEmail: ${data.email}`)
+    window.location.href = `mailto:${EMAIL}?subject=${subject}&body=${body}`
   }
 
   return (
     <SectionWrapper id="contact" className="py-20 px-6">
       <div className="max-w-5xl mx-auto">
-        {/* Heading */}
         <div className="mb-12 text-center">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
-            Get in Touch
-          </h2>
+          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">Get in Touch</h2>
           <div className="w-16 h-1 bg-red-500 mx-auto rounded" />
         </div>
 
-        {/* Two-column layout */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           {/* Left column */}
           <div className="flex flex-col justify-center gap-6">
@@ -69,7 +48,6 @@ export default function Contact() {
               Have a question, opportunity, or just want to say hi? My inbox is always open.
             </p>
 
-            {/* Copy email row */}
             <div className="flex items-center gap-3 bg-gray-100 dark:bg-gray-800 rounded-lg px-4 py-3 w-fit">
               <span className="text-sm text-gray-700 dark:text-gray-300 font-mono">{EMAIL}</span>
               <button
@@ -97,88 +75,44 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* Right column — contact form */}
+          {/* Right column — form */}
           <form onSubmit={handleSubmit(onSubmit)} noValidate className="flex flex-col gap-5">
-            {/* Name */}
             <div>
-              <label
-                htmlFor="name"
-                className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
-              >
-                Name
-              </label>
-              <input
-                id="name"
-                type="text"
-                className={inputClass}
-                {...register('name', { required: 'Name is required' })}
-              />
+              <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Name</label>
+              <input id="name" type="text" className={inputClass} {...register('name', { required: 'Name is required' })} />
               {errors.name && <p className={errorClass}>{errors.name.message}</p>}
             </div>
 
-            {/* Email */}
             <div>
-              <label
-                htmlFor="email"
-                className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
-              >
-                Email
-              </label>
+              <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email</label>
               <input
-                id="email"
-                type="email"
-                className={inputClass}
+                id="email" type="email" className={inputClass}
                 {...register('email', {
                   required: 'Email is required',
-                  pattern: {
-                    value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                    message: 'Enter a valid email address',
-                  },
+                  pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: 'Enter a valid email address' },
                 })}
               />
               {errors.email && <p className={errorClass}>{errors.email.message}</p>}
             </div>
 
-            {/* Message */}
             <div>
-              <label
-                htmlFor="message"
-                className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
-              >
-                Message
-              </label>
+              <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Message</label>
               <textarea
-                id="message"
-                rows={5}
-                className={inputClass}
-                {...register('message', {
-                  required: 'Message is required',
-                  minLength: { value: 10, message: 'Message must be at least 10 characters' },
-                })}
+                id="message" rows={5} className={inputClass}
+                {...register('message', { required: 'Message is required', minLength: { value: 10, message: 'Message must be at least 10 characters' } })}
               />
               {errors.message && <p className={errorClass}>{errors.message.message}</p>}
             </div>
 
-            {/* Status banners */}
-            {status === 'success' && (
-              <p className="text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-900/20 px-4 py-3 rounded-lg text-sm">
-                Message sent! I&apos;ll get back to you soon.
-              </p>
-            )}
-            {status === 'error' && (
-              <p className="text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-900/20 px-4 py-3 rounded-lg text-sm">
-                Something went wrong. Please try again or email me directly.
-              </p>
-            )}
-
-            {/* Submit */}
             <button
               type="submit"
-              disabled={status === 'loading'}
-              className="bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-lg font-medium transition-all hover:scale-105 w-full disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100"
+              className="bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-lg font-medium transition-all hover:scale-105 w-full"
             >
-              {status === 'loading' ? 'Sending...' : 'Send Message'}
+              Send Message
             </button>
+            <p className="text-xs text-gray-400 dark:text-gray-500 text-center">
+              Opens your email client with the message pre-filled.
+            </p>
           </form>
         </div>
       </div>

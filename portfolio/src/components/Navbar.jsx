@@ -106,7 +106,7 @@ export default function Navbar() {
             <div className="flex items-center gap-2">
               <ThemeToggle />
               <a
-                href="/resume.pdf"
+                href="/AydanEng_resume.pdf"
                 download
                 className="hidden md:inline-flex items-center px-3 py-1.5 text-sm font-medium
                   border border-red-500 text-red-500 rounded hover:bg-red-500 hover:text-white

@@ -6,6 +6,8 @@ const projects = [
       'Hackathon winner ($1,000) at Ottawa Defense Tech Hackathon. Built A4K, an acoustic drone-detection system identifying UAVs using only microphone input with 95%+ classification accuracy. Custom CNN trained on log-mel spectrograms, exported to ONNX. Full-stack pipeline: FastAPI WebSocket backend + React/TypeScript radar-style frontend.',
     tags: ['Python', 'FastAPI', 'React', 'TypeScript', 'PyTorch', 'ONNX'],
     githubUrl: 'https://github.com/Ajanzz/drones-shazam-ODT-hackathon',
+    devpostUrl: 'https://devpost.com/software/a4k',
+    hackathonWinner: true,
     featured: true,
   },
   {
@@ -15,6 +17,7 @@ const projects = [
       'UOttaHack project. End-to-end full-stack feedback system integrating the SurveyMonkey REST API for low-latency in-app voting. Stateless backend service for normalized weighted feedback scores (1–5), automated ETL pipelines, and a real-time sentiment dashboard.',
     tags: ['React', 'Node.js', 'REST API', 'TypeScript'],
     githubUrl: 'https://github.com/Ajanzz/UOttaHack8-Ajan-Danilo-Aws-Aydan',
+    devpostUrl: 'https://devpost.com/software/mirrorloop-the-invisible-feedback-agent',
     featured: true,
   },
   {
@@ -27,7 +30,7 @@ const projects = [
   },
   {
     id: 'sysc4001-a3',
-    title: 'SYSC 4001 — OS Assignment 3',
+    title: 'Operating System',
     description:
       'Operating Systems assignment implementing process scheduling and inter-process communication concepts in C. Covers real-time systems topics from SYSC 4001 at Carleton University.',
     tags: ['C', 'Linux', 'Operating Systems'],
