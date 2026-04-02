@@ -5,6 +5,8 @@ const experience = [
     type: 'work',
     title: 'Full-Stack Software Developer',
     organization: 'Raven Connected',
+    organizationUrl: 'https://ravenconnected.com',
+    logo: '/logos/raven.jpg',
     dateRange: 'Jan 2026 – Present',
     location: 'Ottawa, ON',
     bullets: [
@@ -19,6 +21,8 @@ const experience = [
     type: 'work',
     title: 'Software Developer',
     organization: 'Remsoft',
+    organizationUrl: 'https://remsoft.com',
+    logo: '/logos/remsoft.jpg',
     dateRange: 'May 2025 – Aug 2025',
     location: 'Ottawa, ON',
     bullets: [
@@ -31,8 +35,10 @@ const experience = [
   {
     id: 'ta-math-carleton',
     type: 'work',
-    title: 'Undergraduate Math & Statistics Teaching Assistant',
+    title: 'Math & Statistics Teaching Assistant',
     organization: 'Carleton University',
+    organizationUrl: 'https://carleton.ca',
+    logo: '/logos/carleton.png',
     dateRange: 'Sep 2025 – Dec 2025',
     location: 'Ottawa, ON',
     bullets: [
@@ -45,6 +51,8 @@ const experience = [
     type: 'education',
     title: 'Honours BEng, Software Engineering (CO-OP)',
     organization: 'Carleton University',
+    organizationUrl: 'https://carleton.ca',
+    logo: '/logos/carleton.png',
     dateRange: 'Sep 2023 – Apr 2027',
     location: 'Ottawa, ON',
     bullets: [

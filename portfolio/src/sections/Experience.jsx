@@ -39,11 +39,22 @@ export default function Experience() {
                 >
                   {/* Card — takes up ~half width on desktop */}
                   <div
-                    className={`ml-10 md:ml-0 w-full md:w-[calc(50%-2rem)] bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-sm rounded-xl p-6 ${
+                    className={`ml-10 md:ml-0 w-full md:w-[calc(50%-2rem)] bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-sm rounded-xl p-6 relative ${
                       isLeft ? 'md:mr-8' : 'md:ml-8'
                     }`}
                   >
-                    <div className="flex items-center gap-2 mb-1">
+                    {/* Company/Organization Logo */}
+                    {entry.logo && (
+                      <div className="absolute top-6 right-6 flex items-center justify-center w-16 h-16 rounded-lg bg-white dark:bg-gray-700 p-2 shadow-sm border border-gray-200 dark:border-gray-600">
+                        <img
+                          src={entry.logo}
+                          alt={`${entry.organization} logo`}
+                          className="max-w-full max-h-full object-contain"
+                        />
+                      </div>
+                    )}
+
+                    <div className="flex items-center gap-2 mb-1 pr-16">
                       <Icon
                         className={
                           entry.type === 'work'
@@ -57,7 +68,18 @@ export default function Experience() {
                       </h3>
                     </div>
                     <p className="text-red-500 font-medium text-sm mb-1">
-                      {entry.organization}
+                      {entry.organizationUrl ? (
+                        <a
+                          href={entry.organizationUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="hover:underline hover:text-red-600 dark:hover:text-red-400 transition-colors"
+                        >
+                          {entry.organization}
+                        </a>
+                      ) : (
+                        entry.organization
+                      )}
                     </p>
                     <p className="text-xs text-gray-500 dark:text-gray-400 mb-0.5">
                       {entry.dateRange}
